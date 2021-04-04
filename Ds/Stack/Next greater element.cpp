@@ -36,3 +36,12 @@ int main()
 		cout<<v[i]<<" ";
 	}
 }
+
+Input: 
+N = 4, arr[] = [1 3 2 4]
+Output:
+3 4 4 -1
+Explanation:
+In the array, the next larger element 
+to 1 is 3 , 3 is 4 , 2 is 4 and for 4 ? 
+since it doesn't exist, it is -1.
