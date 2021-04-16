@@ -47,3 +47,50 @@ int main()
 	}
 	return 0;
 }
+
+
+// iterative solution 
+
+class Solution{
+public:
+bool isSubsetSum(int ar[],int n,int s)
+{
+bool dp[n+1][s+1];
+for(int i=0;i<=n;i++){
+for(int j=0;j<=s;j++){
+if(i==0)
+dp[i][j]=false;
+else if(j==0)
+dp[i][j]=true;
+else if(ar[i-1]<=j)
+{
+dp[i][j]=dp[i-1][j-ar[i-1]] || dp[i-1][j];
+}
+else
+{
+dp[i][j]=dp[i-1][j];
+}
+}
+}
+return dp[n][s];
+}
+    int equalPartition(int n, int arr[])
+    {
+        // code here
+     int s=0;
+     for(int i=0;i<n;i++)
+     {
+         s=s+arr[i];
+     } 
+     
+     if(s%2!=0)
+     {
+         return 0;
+     } else
+     {
+        int  m=s/2;
+         isSubsetSum(arr,n,m);
+         
+     }
+     }
+}
