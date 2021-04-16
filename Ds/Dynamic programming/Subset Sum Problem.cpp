@@ -34,7 +34,7 @@ void solve(int sum,int a[],int n)
 		{
 			if(a[i-1]<=j)
 			{
-				dp[i][j]= dp[i][j-a[i-1]] || dp[i-1][j];
+				dp[i][j]= dp[i-1][j-a[i-1]] || dp[i-1][j];
 				 cout<<i<<j<<" 1= "<<dp[i][j]<<" ";
 			} 
 			else
