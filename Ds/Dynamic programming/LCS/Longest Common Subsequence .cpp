@@ -7,8 +7,29 @@ Explanation: LCS for input Sequences
 “ABCDGH” and “AEDFHR” is “ADH” of
 length 3.
 
-
-
+//recursive
+    int lcs(int m,int n,string s,string s1)
+{  
+    
+    if(m==0 || n==0)
+        return 0;
+    if(dp[m][n]!=-1)
+        return dp[m][n];
+    
+    if(s[m-1]==s1[n-1])
+    {
+        return dp[m][n]=lcs(m-1,n-1,s,s1)+1;
+    } 
+    else
+    {
+        return dp[m][n]=max(lcs(m-1,n,s,s1),lcs(m,n-1,s,s1));
+    }
+    
+    
+              
+              
+}
+//iterative
 class Solution
 {
     public:
