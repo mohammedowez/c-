@@ -33,6 +33,7 @@ class Solution{
             }
         }
         
-        return (dp[n][m]);
+        int z=m+n-2*dp[m][n];
+	    return z;
     } 
 };
