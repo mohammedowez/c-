@@ -1,31 +1,20 @@
-void preOrder(Node *root, vector<vector<int>> &res, vector<int> &path)
+void findpath(Node *root,vector<int> v,vector<vector<int>> &res)
 {
-    if(root)
+    if(root==NULL)
+        return ;
+    v.push_back(root->data);
+    if(root->left==NULL&&root->right==NULL)
     {
-        if(root->left == NULL and root->right == NULL)
-        {
-            path.push_back(root->data);
-            
-            res.push_back(path);
-            
-            path.pop_back();
-            
-            return;
-        }
-    
-        path.push_back(root->data);
-        preOrder(root->left,  res, path);
-        preOrder(root->right, res, path);
-        path.pop_back();
+        res.push_back(v);
+        return;
     }
+    findpath(root->left,v,res);
+    findpath(root->right,v,res);
 }
- 
 vector<vector<int>> Paths(Node* root)
 {
     vector<vector<int>> res;
-    vector<int> path;
-    
-    preOrder(root, res, path);
-    
+    vector<int> v;
+    findpath(root,v,res);
     return res;
 }
