@@ -25,13 +25,15 @@ Node *newNode(int data)
 
 vector<int> displayList(Node *head)
 {
+    
     vector<int> v;
-    while(head->next)
+    Node *c=head;
+    while(c)
     {
-        v.push_back(head->data);
-        head=head->next;
+        v.push_back(c->data);
+        c=c->next;
     }
-    v.push_back(head->data);
+    //v.push_back(head->data);
     return v;
 }
 
